@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:roqqu/screens/homescreen.dart';
 import 'package:web_socket_channel/io.dart';
+
+import '../model/chart_data.dart';
 
 class WebSocketManager {
   late double currentPrice;
