@@ -5,14 +5,13 @@ import '../../network/orderbook_web_socket.dart';
 import 'candlestick_chart.dart';
 
 class ChartSection extends StatefulWidget {
-  const ChartSection({super.key});
+  const ChartSection({Key? key});
 
   @override
   State<ChartSection> createState() => _ChartSectionState();
 }
 
 class _ChartSectionState extends State<ChartSection> {
-
   late OrderbookWebSocketManager orderbookWebSocketManager;
   String orderBookText = '';
 
@@ -34,7 +33,10 @@ class _ChartSectionState extends State<ChartSection> {
       List<dynamic>? bids = orderbookData['b'];
       List<dynamic>? asks = orderbookData['a'];
 
-      if (bids != null && asks != null && bids.isNotEmpty && asks.isNotEmpty) {
+      if (bids != null &&
+          asks != null &&
+          bids.isNotEmpty &&
+          asks.isNotEmpty) {
         double bidPrice = double.parse((bids[0] as List<dynamic>).first);
         double bidAmount = double.parse((bids[0] as List<dynamic>).last);
         double bidTotal = bidPrice * bidAmount;
@@ -44,13 +46,12 @@ class _ChartSectionState extends State<ChartSection> {
         double askTotal = askPrice * askAmount;
 
         orderBookText = '''
-        Bid: Price - $bidPrice, Amount - $bidAmount, Total - $bidTotal
-        Ask: Price - $askPrice, Amount - $askAmount, Total - $askTotal
-      ''';
+          Bid: Price - $bidPrice, Amount - $bidAmount, Total - $bidTotal
+          Ask: Price - $askPrice, Amount - $askAmount, Total - $askTotal
+        ''';
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +59,9 @@ class _ChartSectionState extends State<ChartSection> {
       length: 3,
       child: Container(
         height: 591,
-        decoration: ShapeDecoration(
+        decoration: BoxDecoration(
           color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
-          ),
+          border: Border.all(width: 1, color: Color(0xFFF1F1F1)),
         ),
         child: Column(
           children: [
@@ -71,23 +70,18 @@ class _ChartSectionState extends State<ChartSection> {
               child: Container(
                 height: 40,
                 width: 358,
-                decoration: ShapeDecoration(
+                decoration: BoxDecoration(
                   color: Color(0xFFF1F1F1),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 1, color: Color(0xFFF1F1F1)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(3.0),
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.tab,
-                    indicator: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                    indicator: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
                       color: Colors.white,
-                      shadows: [
+                      boxShadow: [
                         BoxShadow(
                           color: Color(0x0A000000),
                           blurRadius: 1,
