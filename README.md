@@ -1,4 +1,4 @@
-<iframe width="560" height="315" src="https://youtube.com/shorts/QPieEVxV5SA?si=Zpl-aArQQoHkOV-0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+
 
 # Roqqu Flutter C"rypto Trading App (Assessment)
 
