@@ -1,4 +1,4 @@
-
+![](https://github.com/shegsbass/roqqu/blob/master/roqqu-assess.gif)
 
 # Roqqu Flutter Crypto Trading App (Assessment)
 
@@ -84,7 +84,7 @@ While I was able to fetch real-time data for Orderbooks through the Binance API,
 
 ## Clone the repository:
 
-'git clone https://github.com/your-username/flutter-crypto-trading-app.git'
+'git clone https://github.com/shegsbass/roqqu'
 
 Open the project in your preferred Flutter development environment.
 
