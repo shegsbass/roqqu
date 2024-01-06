@@ -1,16 +1,78 @@
-# roqqu
+# Roqqu Flutter Crypto Trading App (Assessment)
 
-A new Flutter project.
+This Flutter application demonstrates a simple crypto trading app with real-time price updates, candlestick charts, order book data, and recent trades. It utilizes WebSocket communication to receive live data from the Binance API.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- WebSocketManager: Manages WebSocket connections for retrieving real-time candlestick chart data.
+'''import 'dart:convert';
+import 'package:web_socket_channel/io.dart';
 
-A few resources to get you started if this is your first Flutter project:
+class WebSocketManager {
+  late double currentPrice;
+  late List<ChartData> chartData;
+  late IOWebSocketChannel channel;
+  late Function onPriceUpdate; // Callback function
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+  WebSocketManager(String symbol, this.onPriceUpdate) {
+    // ... (see the provided code)
+  }
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  // ... (see the provided code)
+}'''
+
+- OrderbookWebSocketManager: Manages WebSocket connections for retrieving real-time order book data.
+'''import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:web_socket_channel/io.dart';
+
+class OrderbookWebSocketManager {
+  // ... (see the provided code)
+}'''
+
+- CandleSection Widget: Displays a tabbed interface with three tabs: Charts, Orderbook, and Recent Trades. Each tab has its corresponding content.
+'''import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'dart:convert';
+
+import 'package:web_socket_channel/io.dart';
+import 'dart:convert';
+
+import '../orderbook_web_socket.dart';
+import '../web_socket_manager.dart';
+
+class CandleSection extends StatefulWidget {
+  // ... (see the provided code)
+}'''
+
+- CandlestickChart Widget: Displays a candlestick chart using the Syncfusion Flutter Charts library.
+'''import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
+class CandlestickChart extends StatefulWidget {
+  // ... (see the provided code)
+}'''
+
+- ChartData Class: Represents the data structure for candlestick chart data.
+'''class ChartData {
+  // ... (see the provided code)
+}'''
+
+## Usage
+###Clone the repository:
+
+'git clone https://github.com/your-username/flutter-crypto-trading-app.git'
+
+Open the project in your preferred Flutter development environment.
+
+Run the app on an emulator or physical device.
+
+## Dependencies
+- flutter
+- syncfusion_flutter_charts
+
+## Notes
+This app uses WebSocket communication to receive real-time data. Ensure a stable internet connection for proper functionality.
+Customize the app as needed for your specific use case.
+Feel free to contribute to the project, report issues, or suggest improvements!
+
